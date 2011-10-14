@@ -1,0 +1,23 @@
+<?php
+
+define('RES_USERLEVEL_NOLOGIN', 0);
+define('RES_USERLEVEL_USER', 1);
+define('RES_USERLEVEL_LEADER', 2);
+define('RES_USERLEVEL_ADMIN', 6);
+
+define('RES_STATUS_PENDING', 0);
+define('RES_STATUS_CONFIRMED', 1);
+define('RES_STATUS_DENIED', 2);
+define('RES_STATUS_CHECKED_IN', 3);
+define('RES_STATUS_CHECKED_OUT', 4);
+
+define('RES_WARNING_ACTIVE', 1);
+define('RES_WARNING_NOTE', 2);
+define('RES_WARNING_INACTIVE', 3);
+
+define('RES_WARNING_MAX_ACTIVE', 3);
+
+define('RES_ERROR_LOGIN_NO_USER', 1);
+define('RES_ERROR_LOGIN_USER_PASS', 2);
+
+?>
