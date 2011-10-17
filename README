@@ -1,0 +1,7 @@
+Required PHP Extensions
+* php_openssl
+
+Required PHP Libraries
+* pear
+* * Mail
+* * * Net_SMTP (dependancy of Mail)
