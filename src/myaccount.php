@@ -79,7 +79,7 @@ echo "
 		<tr>
 
 			<td class=\"centeredcellbold\">ID Number</td>
-			<td colspan=3 class=\"centeredcell\">".$user['student_id']."</td>
+			<td colspan=3 class=\"centeredcell\">".$user['username']."</td>
 			
 		</tr>
 	

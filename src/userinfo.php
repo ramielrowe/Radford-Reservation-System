@@ -36,7 +36,7 @@ $user = mysql_fetch_assoc(getUserByID($user_id));
 				<td class="centeredcell"><?php echo $user['name']; ?></td>
 
 				<td class="centeredcellbold">ID Num</th>
-				<td class="centeredcell"><?php echo $user['student_id']; ?></td>
+				<td class="centeredcell"><?php echo $user['username']; ?></td>
 
 			</tr>
 
