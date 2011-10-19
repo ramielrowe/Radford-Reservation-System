@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `res_reservations` (
 
 CREATE TABLE IF NOT EXISTS `res_users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `student_id` int(11) NOT NULL,
+  `student_id` varchar(30) NOT NULL,
   `name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` text NOT NULL,
