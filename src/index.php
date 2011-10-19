@@ -29,8 +29,8 @@ Known Bugs/Fixes:
 	
 */
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 
 if(!file_exists("config.php") || file_exists("setup.php")){
 
@@ -88,6 +88,13 @@ admin the admin links will also be displayed.
 
 if(isset($_SESSION['user_level'])){
 
+	if($_SESSION['user_level'] == RES_USERLEVEL_NOLOGIN){
+	
+		$navi = $navi . "<tr><td class=\"navi\">
+				<a href=\"./index.php?pageid=logout\" class=\"navi\">Logout</a>
+			</td></tr>";
+	
+	}
 	if($_SESSION['user_level'] > RES_USERLEVEL_NOLOGIN){
 	
 		$navi = $navi . "<tr><td class=\"navi\">

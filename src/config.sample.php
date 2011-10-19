@@ -83,7 +83,13 @@ $config = array(
 
 'BLOWFISH_key' => '1234567890123456',
 
-'admin_rank' => '6'
+'admin_rank' => '6',
+
+'use_ldap' => true,
+
+'ldap_domain' => 'mydomain.com',
+
+'ldap_server' => 'ldapserveraddress'
 
 );
 

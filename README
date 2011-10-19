@@ -1,5 +1,6 @@
 Required PHP Extensions
 * php_openssl
+* php_ldap
 
 Required PHP Libraries
 * pear

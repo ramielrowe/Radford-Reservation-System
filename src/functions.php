@@ -195,4 +195,68 @@ function generatePassword($length=9, $strength=0) {
 	return $password;
 }
 
+function checkNTuser($username, $password, $DomainName, $ldap_server){
+	if ($password == '')
+		return false;
+	$auth_user=$username."@".$DomainName;
+	if($connect=@ldap_connect($ldap_server)){
+		if($bind=@ldap_bind($connect, $auth_user, $password)){
+			@ldap_close($connect);
+
+			return true;
+		}
+	}
+
+	@ldap_close($connect);
+	return false;
+}
+
+function authLDAPUser($username, $password){
+
+	return checkNTuser($username, $password, getConfigVar('ldap_domain'), getConfigVar('ldap_server'));
+
+}
+
+function processLogin($username, $password){
+	
+	if(getConfigVar("use_ldap")){
+
+		$authd = processLDAPLogin($username, $password);
+		if($authd)
+			return getUserByUsername($username);
+		else
+			return null;
+	
+	}else{
+	
+		return processDBLogin($username);
+	
+	}
+
+}
+
+function processLDAPLogin($username, $password){
+
+	if(authLDAPUser($username, $password)){
+	
+		$userresult = getUserByUsername($username);
+		
+		if(mysql_num_rows($userresult) >= 1){
+		
+			return $userresult;
+			
+		}else{
+		
+			return createUserFromLDAP($username, $password);
+		
+		}
+	
+	}else{
+	
+		return false;
+	
+	}
+
+}
+
 ?>
