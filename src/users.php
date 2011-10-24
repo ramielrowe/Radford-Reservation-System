@@ -36,15 +36,23 @@ if($pageid == "adminsavepassword"){
 else if($pageid == "adminsaveemail"){
 
 	changeUserEmail($userid, $_POST['email']);
+	$message = "User Saved!<br><br>";
+
+}
+else if($pageid == "adminsavelevel"){
+
+	changeUserLevel($userid, $_POST['level']);
+	$message = "User Saved!<br><br>";
 
 }
 else if($pageid == "adminsavenotes"){
 
 	changeUserNotes($userid, $_POST['notes']);
+	$message = "User Saved!<br><br>";
 
 }
 
-if($pageid == "edituser" || $pageid == "adminsavepassword" || $pageid == "adminsaveemail"){
+if($pageid == "edituser" || $pageid == "adminsavepassword" || $pageid == "adminsaveemail" || $pageid == "adminsavelevel"){
 
 	$sel = "";
 
@@ -66,7 +74,7 @@ while($row = mysql_fetch_assoc($result)){
 	$sel = "";
 }
 
-if($pageid == "edituser" || $pageid == "adminsavepassword" || $pageid == "adminsaveemail" || $pageid == "adminsavenotes"){
+if($pageid == "edituser" || $pageid == "adminsavepassword" || $pageid == "adminsaveemail" || $pageid == "adminsavenotes" || $pageid == "adminsavelevel"){
 
 	echo "<center><h3>Manage Users</h3></center>
 <center><form action=\"index.php\" method=\"GET\"><input type=\"hidden\" name=\"pageid\" value=\"edituser\"><select name=\"user\">
@@ -119,6 +127,16 @@ if($pageid == "edituser" || $pageid == "adminsavepassword" || $pageid == "admins
 			
 			<td colspan=1 class=\"centeredcellbold\">Email</td>
 			<form action=\"./index.php?pageid=adminsaveemail\" method=\"POST\"><td colspan=3 class=\"centeredcell\"><input type=\"hidden\" name=\"userid\" value=\"".$user['user_id']."\"><input type=\"text\" name=\"email\" size=30 value=\"".$user['email']."\"><input type=\"submit\" value=\"Save Email\"></td></form>
+				
+		</tr>
+	
+		<tr>
+			
+			<td colspan=1 class=\"centeredcellbold\">Userlevel</td>
+			<form action=\"./index.php?pageid=adminsavelevel\" method=\"POST\"><td colspan=3 class=\"centeredcell\">
+			<input type=\"hidden\" name=\"userid\" value=\"".$user['user_id']."\"><input type=\"text\" name=\"level\" size=2 value=\"".$user['user_level']."\"><input type=\"submit\" value=\"Save Level\">
+			<br />".RES_USERLEVEL_NOLOGIN.": ".RES_USERLEVEL_STRING_NOLOGIN.", ".RES_USERLEVEL_USER.": ".RES_USERLEVEL_STRING_USER.", ".RES_USERLEVEL_LEADER.": ".RES_USERLEVEL_STRING_LEADER.", ".RES_USERLEVEL_ADMIN.": ".RES_USERLEVEL_STRING_ADMIN."</td>
+			</form>
 				
 		</tr>
 

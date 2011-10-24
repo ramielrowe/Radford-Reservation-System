@@ -220,7 +220,7 @@ else if($pageid == "editreservation"){
 	$page = "./editreservation.php";
 
 }
-else if($pageid == "manageusers" || $pageid == "edituser" || $pageid == "adminsavepassword" || $pageid == "adminsaveemail" || $pageid == "adminsavenotes"){
+else if($pageid == "manageusers" || $pageid == "edituser" || $pageid == "adminsavepassword" || $pageid == "adminsaveemail" || $pageid == "adminsavenotes" || $pageid == "adminsavelevel"){
 
 	$page = "./users.php";
 

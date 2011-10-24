@@ -25,13 +25,15 @@ else if($loginoption == RES_ERROR_LOGIN_USER_PASS){
 
 }
 
+$url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+
 $loginpage = $loginpage . "
 	
 		<center><h3>Welcome!</h3>
 		<font color=\"#FF0000\">".$errormessage."</font></center>
 	
 		<form action=\"./processlogin.php\" method=\"POST\" name=\"loginform\">
-
+		<input type=\"hidden\" name=\"redir\" value=\"$url\">
 			<table class=\"login\">
 				<tr>
 					<td colspan=2 class=\"header\">User Login</td>

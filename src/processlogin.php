@@ -68,6 +68,10 @@ else{
 
 }
 
-header($page);
+if(strpos($_POST['redir'], "logout") === false){
+	header("Location: ".$_POST['redir']);
+}else{
+	header($page);
+}
 
 ?>

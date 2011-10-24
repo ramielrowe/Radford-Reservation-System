@@ -34,7 +34,7 @@ function sendReservationNoticeToUser($email, $resid){
     'Reply-To: '.getConfigVar('smtp_email') . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 	
-	sendMail("ramielrowe@gmail.com",$email, $subject, $message);
+	sendMail(getConfigVar('smtp_email'),$email, $subject, $message);
 
 }
 
@@ -47,6 +47,30 @@ function sendReservationNoticeToUser($email, $resid){
 function sendReservationNoticeToAdmins($resid){
 
 	$message = "New reservation pending approval. ".getConfigVar("location")."confirmReservation.php?resid=".$resid."";
+	$subject = "New Reservation Notice";
+	$headers = 'From: '.getConfigVar('smtp_email'). "\r\n" .
+    'Reply-To: '.getConfigVar('smtp_email') . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+	
+	$admins = getAllUsersByUserLevel(getConfigVar("admin_rank"));
+	
+	while($row = mysql_fetch_assoc($admins)){
+	
+		sendMail(getConfigVar('smtp_email'),$row['email'], $subject, $message);
+	
+	}
+
+}
+
+/*
+
+	Sends all of the admins an email notifying them of a new reservation.
+
+*/
+
+function sendNewUserNoticeToAdmins($userid){
+
+	$message = "New user pending approval. ".getConfigVar("location")."index.php?pageid=edituser&user=".$userid."";
 	$subject = "New Reservation Notice";
 	$headers = 'From: '.getConfigVar('smtp_email'). "\r\n" .
     'Reply-To: '.getConfigVar('smtp_email') . "\r\n" .
