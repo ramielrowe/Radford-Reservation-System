@@ -246,7 +246,10 @@ function getReservationsByEquipIDandDate($equip,$startdate, $enddate){
 	$startdate = makeStringSafe($startdate);
 	$enddate = makeStringSafe($enddate);
 
-	return doQuery("SELECT * FROM ".getDBPrefix()."_reservations WHERE equip_id = '".$equip."' AND (mod_status = '".RES_STATUS_PENDING."' OR mod_status = '".RES_STATUS_CONFIRMED."' AND ( (start_date BETWEEN '".$startdate."' AND '".$enddate."') OR (end_date BETWEEN '".$startdate."' AND '".$enddate."') ) AND mod_status='".RES_STATUS_CONFIRMED."')");
+	return doQuery("SELECT * FROM ".getDBPrefix()."_reservations WHERE
+	equip_id = '".$equip."' AND 
+	(mod_status = '".RES_STATUS_PENDING."' OR mod_status = '".RES_STATUS_CONFIRMED."' OR mod_status = '".RES_STATUS_CHECKED_OUT."')
+	AND ((start_date BETWEEN '".$startdate."' AND '".$enddate."') OR (end_date BETWEEN '".$startdate."' AND '".$enddate."'))");
 
 }
 
