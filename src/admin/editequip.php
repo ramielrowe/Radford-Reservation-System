@@ -84,7 +84,7 @@ echo "<center><h3>Edit Equipment</h3>".$message."</center>
 		<tr>
 		
 			<td colspan=2 class=\"centeredcellbold\">Equipment Type</td>
-			<td colspan=2 class=\"centeredcell\"><input type=\"text\" size=30 name=\"type\" value=\"".$equip['type']."\"></td>
+			<td colspan=2 class=\"centeredcell\">".getEquipmentTypesDropDownSelected("type", 1, $equip['type'])."</td>
 			
 		</tr>
 		

@@ -61,6 +61,10 @@ $config = array(
 
 'banner' => 'banner.png',
 
+'equipment_types' => array(
+						'Geology', 'Geospatial', 'Physics', 'Anthropology', 'Forensics Institute'
+						),
+
 'mysql_server' => 'localhost',
 
 'mysql_user' => 'user',

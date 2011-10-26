@@ -21,6 +21,7 @@ require_once 'config.php';
 require_once './lib/constants.php';
 require_once './lib/db_functions.php';
 require_once './lib/email_functions.php';
+require_once './lib/html_functions.php';
 
 
 

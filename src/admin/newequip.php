@@ -96,7 +96,7 @@ echo "
 		<tr>
 		
 			<td colspan=2 class=\"centeredcellbold\">Type</td>
-			<td colspan=2 class=\"centeredcell\"><input type=\"text\" size=30 name=\"type\"></td>
+			<td colspan=2 class=\"centeredcell\">".getEquipmentTypesDropDown("type", 1)."</td>
 			
 		</tr>
 		
