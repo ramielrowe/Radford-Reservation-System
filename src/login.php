@@ -16,12 +16,12 @@ $errormessage = "";
 
 if($loginoption == RES_ERROR_LOGIN_NO_USER){
 
-	$errormessage = "No such student id<br><br>";
+	$errormessage = "No such username<br><br>";
 
 }
 else if($loginoption == RES_ERROR_LOGIN_USER_PASS){
 
-	$errormessage = "Incorrect student id or password<br><br>";
+	$errormessage = "Incorrect username or password<br><br>";
 
 }
 
@@ -39,7 +39,7 @@ $loginpage = $loginpage . "
 					<td colspan=2 class=\"header\">User Login</td>
 				</tr>
 				<tr>
-					<td class=\"centeredcellbold\">Student ID</td>
+					<td class=\"centeredcellbold\">Username</td>
 					<td class=\"centeredcell\"><input type=\"text\" name=\"id\"></td>
 				</tr>
 				<tr>

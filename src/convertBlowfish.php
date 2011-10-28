@@ -3,7 +3,7 @@
 /*
 
 
-Student Media Reservation System
+Radford Reservation System
 Author: Andrew Melton
 
 Filename: convertBlowfish.php

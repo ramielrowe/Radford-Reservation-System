@@ -2,7 +2,7 @@
 
 /*
 
-Student Media Reservation System
+Radford Reservation System
 Author: Andrew Melton
 LoC: 5810 (8-19-2011)
 

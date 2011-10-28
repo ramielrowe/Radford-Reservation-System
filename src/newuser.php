@@ -13,7 +13,7 @@
 		
 		if(mysql_num_rows(getUserByID($stu_id)) > 0){
 		
-			$message = "User with student id "+$stu_id+" already exists.";
+			$message = "User with username "+$stu_id+" already exists.";
 			
 		}else{
 		
@@ -36,7 +36,7 @@
 		</tr>
 		<tr>
 		
-			<td class=\"centeredcellbold\">Student ID</td>
+			<td class=\"centeredcellbold\">Username</td>
 			<td class=\"centeredcell\"><input type=\"text\" name=\"stu_id\"></td>
 			<td class=\"centeredcellbold\">Name</td>
 			<td class=\"centeredcell\"><input type=\"text\" name=\"name\"></td>
@@ -52,9 +52,9 @@
 		
 			<td class=\"centeredcellbold\">User Level</td>
 			<td class=\"centeredcell\"><select name=\"user_level\">
-				<option value=\"1\">STME Member</option>
-				<option value=\"2\">STME Leader</option>
-				<option value=\"".RES_USERLEVEL_ADMIN."\">Admin</option>
+				<option value=\"".RES_USERLEVEL_USER."\">".RES_USERLEVEL_STRING_USER."</option>
+				<option value=\"".RES_USERLEVEL_LEADER."\">".RES_USERLEVEL_STRING_LEADER."</option>
+				<option value=\"".RES_USERLEVEL_ADMIN."\">".RES_USERLEVEL_STRING_ADMIN."</option>
 			</select></td>
 			<td colspan=2 class=\"centeredcell\"><input type=\"submit\" value=\"Create!\"></td>
 		

@@ -15,7 +15,7 @@ $user = mysql_fetch_assoc(getUserByID($user_id));
 	<head>
 	
 		<LINK REL=StyleSheet HREF="./style.css" TYPE="text/css">
-		<title>STME User Info</title>
+		<title>User Info</title>
 
 	</head>
 

@@ -1,7 +1,7 @@
 <?php
 /*
 
-Student Media Reservation System
+Radford Reservation System
 Author: Andrew Melton
 
 Filename: confirmReservation.php
@@ -65,7 +65,7 @@ if(isset($_POST['page']) && $_POST['page'] == "login"){
 	if(mysql_num_rows($userq)==0){
 
 		$error = RES_ERROR_LOGIN_NO_USER;
-		$errormessage = "No such student id<br><br>";
+		$errormessage = "No such user id<br><br>";
 
 	}else{
 
@@ -74,7 +74,7 @@ if(isset($_POST['page']) && $_POST['page'] == "login"){
 		if($row['password'] != encrypt($password)){
 
 			$error = RES_ERROR_LOGIN_USER_PASS;
-			$errormessage = "Incorrect student id or password<br><br>";
+			$errormessage = "Incorrect user name or password<br><br>";
 
 		}
 		
@@ -140,7 +140,7 @@ if((isset($_GET['resid']) || isset($_POST['resid'])) && issetSessionVariable('us
 				$status = "<font color=\"#FF0000\">Current Status: Denied</font>";
 		
 			$page = $page . "
-			<center><h3>STME Reservation Confirmation/Update Form</h3>".$message."<br><br></center>
+			<center><h3>Reservation Confirmation/Update Form</h3>".$message."<br><br></center>
 			<form action=\"./confirmReservation.php\" method=\"POST\"><table class=\"confirmreservation\">
 			
 				<tr>
@@ -252,7 +252,7 @@ else{
 					<td colspan=2 class=\"header\">User Login</td>
 				</tr>
 				<tr>
-					<td class=\"centeredcellbold\">Student ID</td>
+					<td class=\"centeredcellbold\">Username</td>
 					<td class=\"centeredcell\"><input type=\"text\" name=\"id\"></td>
 				</tr>
 				<tr>
@@ -275,7 +275,7 @@ else{
 	
 		<LINK REL=StyleSheet HREF="./style.css" TYPE="text/css">
 		
-		<title><?php if(issetSessionVariable('user_level') && getSessionVariable('user_level') >= RES_USERLEVEL_ADMIN) echo "STME Reservation Confirmation Page"; ?></title>
+		<title><?php if(issetSessionVariable('user_level') && getSessionVariable('user_level') >= RES_USERLEVEL_ADMIN) echo "Reservation Confirmation Page"; ?></title>
 	
 	</head>
 	

@@ -2,7 +2,7 @@
 
 /*
 
-Student Media Reservation System
+Radford Reservation System
 Author: Andrew Melton
 
 Filename: /lib/email_functions.php
@@ -29,7 +29,7 @@ Known Bugs/Fixes:
 function sendReservationNoticeToUser($email, $resid){
 
 	$message = "Your reservation's status has been updated. Please visit this address to view it's status: ".getConfigVar("location")."index.php?pageid=viewreservation&&resid=".$resid."";
-	$subject = "STME Reservation Status Update";
+	$subject = "Reservation Status Update";
 	$headers = 'From: '.getConfigVar('smtp_email'). "\r\n" .
     'Reply-To: '.getConfigVar('smtp_email') . "\r\n" .
     'X-Mailer: PHP/' . phpversion();

@@ -9,7 +9,7 @@ ini_set('smtp_port', '25');
 		ex- 'http://www.example.com/res/'
 		
 	'pageheader' : Title displayed on the browser for each page.
-		ex- 'Student Media Reservation System'
+		ex- 'Radford Reservation System'
 		
 	'banner' : Filename for the banner image. 
 		The image should be 750x150px and stored in the root directory of

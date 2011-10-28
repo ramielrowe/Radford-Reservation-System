@@ -106,7 +106,7 @@ echo "<center><h3>Edit Equipment</h3>".$message."</center>
 		
 			<td class=\"centeredcellbold\">Max Length (days)</td>
 			<td class=\"centeredcell\"><input type=\"text\" size=4 name=\"max\" value=\"".$equip['max_length']."\"></td>
-			<td class=\"centeredcell\"><b>Minimum User Level</b><br>(".RES_USERLEVEL_USER.": Members, ".RES_USERLEVEL_LEADER.": Media Leaders, ".RES_USERLEVEL_ADMIN.": Admins)</td>
+			<td class=\"centeredcell\"><b>Minimum User Level</b><br />(".RES_USERLEVEL_NOLOGIN.": ".RES_USERLEVEL_STRING_NOLOGIN.", ".RES_USERLEVEL_USER.": ".RES_USERLEVEL_STRING_USER.", ".RES_USERLEVEL_LEADER.": ".RES_USERLEVEL_STRING_LEADER.", ".RES_USERLEVEL_ADMIN.": ".RES_USERLEVEL_STRING_ADMIN.")</td>
 			<td class=\"centeredcell\"><input type=\"text\" size=4 name=\"minuserlevel\" value=\"".$equip['min_user_level']."\"></td>
 			
 		</tr>

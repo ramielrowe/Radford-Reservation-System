@@ -2,7 +2,7 @@
 
 /*
 
-Student Media Reservation System
+Radford Reservation System
 Author: Andrew Melton
 
 Filename: confirmReservation.php
@@ -52,7 +52,7 @@ if(isset($_GET['start']) && isset($_GET['end'])){
 $browsetable = "P: Pending | C: Confirmed | D: Denied | CO: Checked-Out | CI: Checked-In<br><br>
 <table class=\"browse\">
 	<tr>
-		<td class=\"header\">Student</td>
+		<td class=\"header\">User</td>
 		<td class=\"header\">Equipment</td>
 		<td class=\"header\">Start Date</td>
 		<td class=\"header\">Status</td>

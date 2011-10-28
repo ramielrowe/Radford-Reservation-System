@@ -46,7 +46,7 @@ if(mysql_num_rows(getActiveWarningsForUser(getSessionVariable('user_id'))) < RES
 			
 					if($equipment['checkoutfrom'] != -1){
 					
-						$message = "<font color=\"#FF0000\"><b>Error: You must check this out from it's assigned STME Leader.</b></font><br><br>";
+						$message = "<font color=\"#FF0000\"><b>Error: You must check this out from it's assigned user.</b></font><br><br>";
 						
 					}
 					else{
