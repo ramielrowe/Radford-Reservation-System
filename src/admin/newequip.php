@@ -1,8 +1,8 @@
 <?php
 
-if(isset($_SESSION['user_level'])){
+if(issetSessionVariable('user_level')){
 
-	if($_SESSION['user_level'] >= RES_USERLEVEL_ADMIN){
+	if(getSessionVariable('user_level') >= RES_USERLEVEL_ADMIN){
 	
 		
 	

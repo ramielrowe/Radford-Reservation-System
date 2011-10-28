@@ -38,7 +38,7 @@ if(mysql_num_rows($mesResult) > 0){
 
 $equipment = "";
 
-$resresult = getReservationsByUserID($_SESSION['user_id'],5);	
+$resresult = getReservationsByUserID(getSessionVariable('user_id'),5);	
 
 while($row = mysql_fetch_assoc($resresult)){
 

@@ -82,9 +82,9 @@ if(isset($_POST['page']) && $_POST['page'] == "login"){
 
 	if($error == 0){
 	
-		$_SESSION['user_id'] = $row['user_id'];
+		setSessionVariable('user_id', $row['user_id']);
 	
-		$_SESSION['user_level'] = $row['user_level'];
+		setSessionVariable('user_level', $row['user_id']);
 
 	}
 	
@@ -101,14 +101,14 @@ else if(isset($_POST['page']) && $_POST['page'] == "confirm"){
 
 }
 
-if((isset($_GET['resid']) || isset($_POST['resid'])) && isset($_SESSION['user_level'])){
+if((isset($_GET['resid']) || isset($_POST['resid'])) && issetSessionVariable('user_level')){
 
 	if(isset($_GET['resid']))
 		$resid = $_GET['resid'];
 	else if(isset($_POST['resid']))
 		$resid = $_POST['resid'];
 	
-	if($_SESSION['user_level'] >= RES_USERLEVEL_ADMIN){
+	if(getSessionVariable('user_level') >= RES_USERLEVEL_ADMIN){
 	
 		$resresult = getReservationByID($resid);
 		
@@ -275,7 +275,7 @@ else{
 	
 		<LINK REL=StyleSheet HREF="./style.css" TYPE="text/css">
 		
-		<title><?php if(isset($_SESSION['user_level']) && $_SESSION['user_level'] >= RES_USERLEVEL_ADMIN) echo "STME Reservation Confirmation Page"; ?></title>
+		<title><?php if(issetSessionVariable('user_level') && getSessionVariable('user_level') >= RES_USERLEVEL_ADMIN) echo "STME Reservation Confirmation Page"; ?></title>
 	
 	</head>
 	

@@ -48,7 +48,7 @@ else if($pageid == "submitwarning"){
 }
 else if($pageid == "viewwarnings"){
 
-	if($_SESSION['user_level'] < getConfigVar("admin_rank") && $_SESSION['user_id'] != $_GET['user_id']){
+	if(getSessionVariable('user_level') < getConfigVar("admin_rank") && getSessionVariable('user_id') != $_GET['user_id']){
 	
 		echo "<center><h3><font color=\"#FF0000\">Error: You are not authorized to view other user's warnings.</font></h3></center>";
 	

@@ -1,6 +1,6 @@
 <?php
 
-if(mysql_num_rows(getActiveWarningsForUser($_SESSION['user_id'])) < RES_WARNING_MAX_ACTIVE){
+if(mysql_num_rows(getActiveWarningsForUser(getSessionVariable('user_id'))) < RES_WARNING_MAX_ACTIVE){
 
 	if(isset($_GET['equipid']))
 		$equipid = $_GET['equipid'];
@@ -9,7 +9,7 @@ if(mysql_num_rows(getActiveWarningsForUser($_SESSION['user_id'])) < RES_WARNING_
 
 	if($pageid == "finishres"){
 
-		$userid = $_SESSION['user_id'];
+		$userid = getSessionVariable('user_id');
 		$equipid = $_POST['equip_id'];
 		$startdate = $_POST['startdate'];
 		$length = $_POST['length'];

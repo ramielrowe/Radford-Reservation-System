@@ -93,7 +93,7 @@ while($row = mysql_fetch_assoc($result)){
 	$equip = mysql_fetch_assoc(getEquipmentByID($row['equip_id']));
 	$user = mysql_fetch_assoc(getUserByID($row['user_id']));
 	$editlink = "&nbsp;&nbsp;-&nbsp;&nbsp;";
-	if($_SESSION['user_level'] == getConfigVar("admin_rank")){
+	if(getSessionVariable('user_level') == getConfigVar("admin_rank")){
 		$editlink = "<a href=\"./index.php?pageid=editreservation&resid=".$row['res_id']."\">Edit</a>";
 	}
 	$browsetable = $browsetable . "<tr><td class=\"centeredcell\"><a href=\"./userinfo.php?user_id=".$user['user_id']."\" target=\"_BLANK\">".$user['name']."</a></td><td class=\"centeredcell\">".$equip['name']."</td><td class=\"centeredcell\">".$row['start_date']."</td><td class=\"centeredcell\">".$status."</td><td class=\"centeredcell\">".$row['end_date']."</td><td class=\"centeredcell\"><a href=\"./index.php?pageid=viewreservation&resid=".$row['res_id']."\">View</a></td><td class=\"centeredcell\">".$editlink."</td></tr>";

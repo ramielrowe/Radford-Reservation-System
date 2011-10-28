@@ -1,6 +1,6 @@
 <?php
 
-	if(!isset($_SESSION['user_level']) || $_SESSION['user_level'] < RES_USERLEVEL_ADMIN){
+	if(!issetSessionVariable('user_level') || getSessionVariable('user_level') < RES_USERLEVEL_ADMIN){
 	
 		die("You don't have permission to access this page!");
 	

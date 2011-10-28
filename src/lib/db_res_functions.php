@@ -145,7 +145,7 @@ function confirmReservation($resid, $admincomment, $status){
 	
 	sendReservationNoticeToUser($user['email'], $resid);
 	
-	logAdminConfirmReservation($_SESSION['user_id'],$resid);
+	logAdminConfirmReservation(getSessionVariable('user_id'),$resid);
 
 }
 
@@ -171,9 +171,9 @@ function checkOutReservation($res_id){
 
 	$mysqldate = getCurrentMySQLDate();
 
-	doQuery("UPDATE ".getDBPrefix()."_reservations SET mod_status = '".RES_STATUS_CHECKED_OUT."', checked_out_by = '".$_SESSION['user_id']."' ,check_out_date = '".$mysqldate."'  WHERE res_id = ".$res_id."");
+	doQuery("UPDATE ".getDBPrefix()."_reservations SET mod_status = '".RES_STATUS_CHECKED_OUT."', checked_out_by = '".getSessionVariable('user_id')."' ,check_out_date = '".$mysqldate."'  WHERE res_id = ".$res_id."");
 	
-	logAdminCheckOutReservation($_SESSION['user_id'],$res_id);
+	logAdminCheckOutReservation(getSessionVariable('user_id'),$res_id);
 
 }
 /*
@@ -189,9 +189,9 @@ function checkInReservation($res_id){
 
 	$mysqldate = getCurrentMySQLDate();
 
-	doQuery("UPDATE ".getDBPrefix()."_reservations SET mod_status = '".RES_STATUS_CHECKED_IN."', checked_in_by = '".$_SESSION['user_id']."' ,check_in_date = '".$mysqldate."'  WHERE res_id = ".$res_id."");
+	doQuery("UPDATE ".getDBPrefix()."_reservations SET mod_status = '".RES_STATUS_CHECKED_IN."', checked_in_by = '".getSessionVariable('user_id')."' ,check_in_date = '".$mysqldate."'  WHERE res_id = ".$res_id."");
 	
-	logAdminCheckInReservation($_SESSION['user_id'],$res_id);
+	logAdminCheckInReservation(getSessionVariable('user_id'),$res_id);
 
 }
 
@@ -201,7 +201,7 @@ function deleteReservation($res_id){
 
 	doQuery("DELETE FROM ".getDBPrefix()."_reservations WHERE res_id = ".$res_id."");
 	
-	logAdminDeleteReservation($_SESSION['user_id'],$res_id);
+	logAdminDeleteReservation(getSessionVariable('user_id'),$res_id);
 
 }
 

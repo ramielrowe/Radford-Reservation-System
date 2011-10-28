@@ -39,6 +39,23 @@ function getConfigVar($v_name){
 	
 }
 
+function getSessionVariable($v_name){
+
+	return $_SESSION[getConfigVar('location').'-'.$v_name];
+
+}
+
+function setSessionVariable($v_name, $value){
+
+	$_SESSION[getConfigVar('location').'-'.$v_name] = $value;
+
+}
+
+function issetSessionVariable($v_name){
+
+	return isset($_SESSION[getConfigVar('location').'-'.$v_name]);
+
+}
 
 /*
 

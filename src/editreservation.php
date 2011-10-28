@@ -57,7 +57,7 @@ $checkin = "";
 	If the logged in user is an admin, display the "check-in button"
 */
 
-if(isset($_SESSION['user_level']) && $_SESSION['user_level'] >= RES_USERLEVEL_ADMIN){
+if(issetSessionVariable('user_level') && getSessionVariable('user_level') >= RES_USERLEVEL_ADMIN){
 
 	$checkin = "<tr><form action=\"./index.php?pageid=viewreservation\" method=\"POST\"><th colspan=4><input type=\"hidden\" value=\"".$resid."\" name=\"resid\"><input type=\"submit\" value=\"Checkin\"></th></form></tr>";
 

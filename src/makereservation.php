@@ -58,7 +58,7 @@ if($pageid == "finishmakeres"){
 	
 	if(!$alreadyRes && $equipid != "" && $startdate != "" && $length != ""){
 
-		createAdminReservation($_SESSION['user_id'],$userid, $equipid, $startdate, $length, $usercomment, $admincomment, 1);
+		createAdminReservation(getSessionVariable('user_id'),$userid, $equipid, $startdate, $length, $usercomment, $admincomment, 1);
 		$message = "<font color=\"#005500\"><b>Successfully created new reservation!</b></font><br><br>";
 
 	}
@@ -81,7 +81,7 @@ $equipresult = getAllEquipment();
 
 while($row = mysql_fetch_assoc($equipresult)){
 
-	if($_SESSION['user_level'] >= $row['min_user_level'])
+	if(getSessionVariable('user_level') >= $row['min_user_level'])
 		$equipment = $equipment . "<option value=\"".$row['equip_id']."\">".$row['name']." -- Max: ".$row['max_length']." day(s)</option>";
 		
 

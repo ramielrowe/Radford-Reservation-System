@@ -86,16 +86,17 @@ admin the admin links will also be displayed.
 
 */
 
-if(isset($_SESSION['user_level'])){
+if(issetSessionVariable('user_level')){
 
-	if($_SESSION['user_level'] == RES_USERLEVEL_NOLOGIN){
+	$userlevel = getSessionVariable('user_level');
+	if($userlevel == RES_USERLEVEL_NOLOGIN){
 	
 		$navi = $navi . "<tr><td class=\"navi\">
 				<a href=\"./index.php?pageid=logout\" class=\"navi\">Logout</a>
 			</td></tr>";
 	
 	}
-	if($_SESSION['user_level'] > RES_USERLEVEL_NOLOGIN){
+	if($userlevel > RES_USERLEVEL_NOLOGIN){
 	
 		$navi = $navi . "<tr><td class=\"navi\">
 				<a href=\"./index.php?pageid=home\" class=\"navi\">Home</a> - 
@@ -105,7 +106,7 @@ if(isset($_SESSION['user_level'])){
 			</td></tr>";
 	
 	}
-	if($_SESSION['user_level'] == RES_USERLEVEL_LEADER){
+	if($userlevel == RES_USERLEVEL_LEADER){
 
 		$navi = $navi . "<tr>
 			<td class=\"adminnaviouter\">
@@ -119,7 +120,7 @@ if(isset($_SESSION['user_level'])){
 			</td>";
 
 	}
-	if($_SESSION['user_level'] >= RES_USERLEVEL_ADMIN){
+	if($userlevel >= RES_USERLEVEL_ADMIN){
 	
 		$navi = $navi . "<tr>
 		

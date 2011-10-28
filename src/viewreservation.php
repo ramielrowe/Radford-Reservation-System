@@ -112,7 +112,7 @@ if($reservation['mod_status'] == RES_STATUS_CONFIRMED){
 	If the logged in user is an admin, display the "check-in button"
 */
 
-if(isset($_SESSION['user_level']) && $_SESSION['user_level'] >= RES_USERLEVEL_ADMIN){
+if(issetSessionVariable('user_level') && getSessionVariable('user_level') >= RES_USERLEVEL_ADMIN){
 
 	$userinfo = "<tr>
 			
@@ -156,7 +156,7 @@ if(isset($_SESSION['user_level']) && $_SESSION['user_level'] >= RES_USERLEVEL_AD
 				</tr>";
 
 }
-else if(isset($_SESSION['user_level']) && $_SESSION['user_level'] == RES_USERLEVEL_LEADER){
+else if(issetSessionVariable('user_level') && getSessionVariable('user_level') == RES_USERLEVEL_LEADER){
 
 	if($checkinCell == "&nbsp;-&nbsp;"){
 	

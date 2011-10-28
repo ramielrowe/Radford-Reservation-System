@@ -2,7 +2,7 @@
 
 $message = "";
 
-$user = mysql_fetch_assoc(getUserByID($_SESSION['user_id']));
+$user = mysql_fetch_assoc(getUserByID(getSessionVariable('user_id')));
 
 if($pageid == "savepassword"){
 
@@ -16,9 +16,9 @@ if($pageid == "savepassword"){
 		
 			if($newpass == $confpass){
 			
-				changeUserPassword($_SESSION['user_id'], $newpass);
+				changeUserPassword(getSessionVariable('user_id'), $newpass);
 				
-				$user = mysql_fetch_assoc(getUserByID($_SESSION['user_id']));
+				$user = mysql_fetch_assoc(getUserByID(getSessionVariable('user_id')));
 			
 				$message = "<font color=\"#005500\"><b>Password Updated!</b></font><br><br>";
 			
@@ -50,9 +50,9 @@ else if($pageid == "saveemail"){
 	
 	if($email != ""){
 
-		changeUserEmail($_SESSION['user_id'], $email);
+		changeUserEmail(getSessionVariable('user_id'), $email);
 		
-		$user = mysql_fetch_assoc(getUserByID($_SESSION['user_id']));
+		$user = mysql_fetch_assoc(getUserByID(getSessionVariable('user_id')));
 		
 		$message = "<font color=\"#005500\"><b>Email Updated!</b></font><br><br>";
 	

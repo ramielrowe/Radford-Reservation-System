@@ -83,7 +83,7 @@ foreach($equipKeys as $key){
 		/*
 			Check logged in user's user level against the equipments min user level
 		*/
-		if($_SESSION['user_level'] >= $row['min_user_level']){
+		if(getSessionVariable('user_level') >= $row['min_user_level']){
 		
 			if($row['checkoutfrom'] == -1){
 		

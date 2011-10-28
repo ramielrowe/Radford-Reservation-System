@@ -1,8 +1,8 @@
 <?php
 
-if(isset($_SESSION['user_level'])){
+if(issetSessionVariable('user_level')){
 
-	if($_SESSION['user_level'] >= RES_USERLEVEL_ADMIN){
+	if(getSessionVariable('user_level') >= RES_USERLEVEL_ADMIN){
 	
 		
 	
@@ -54,7 +54,7 @@ function addEquipment($name, $type, $serial, $description, $max, $picture, $minu
 	
 	$equip = mysql_fetch_assoc(doQuery("SELECT equip_id FROM ".getDBPrefix()."_equipment ORDER BY equip_id DESC LIMIT 1"));
 	
-	logAddEquipment($_SESSION['user_id'], $equip['equip_id']);
+	logAddEquipment(getSessionVariable('user_id'), $equip['equip_id']);
 
 }
 

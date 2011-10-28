@@ -58,9 +58,9 @@ if($error > 0){
 }
 else{
 	
-	$_SESSION['user_level'] = $user['user_level'];
+	setSessionVariable('user_level', $user['user_level']);
 
-	$_SESSION['user_id'] = $user['user_id'];
+	setSessionVariable('user_id', $user['user_id']);
 
 	sleep(1);
 

@@ -1,6 +1,6 @@
 <?php
 	
-	$userid = $_SESSION['user_id'];
+	$userid = getSessionVariable('user_id');
 	$warnings = getWarningsForUser($userid);
 	$user = mysql_fetch_assoc(getUserByID($userid));
 	$options = "";
