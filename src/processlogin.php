@@ -68,7 +68,7 @@ else{
 
 }
 
-if(strpos($_POST['redir'], "logout") === false){
+if(strpos($_POST['redir'], "logout") === false && strpos($_POST['redir'], "login") === false){
 	header("Location: ".$_POST['redir']);
 }else{
 	header($page);
