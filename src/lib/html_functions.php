@@ -44,4 +44,48 @@ function getEquipmentTypesDropDownSelected($name, $size, $selectedvalue){
 
 }
 
+function getUserLevelList(){
+
+	return "".RES_USERLEVEL_NOLOGIN.": ".RES_USERLEVEL_STRING_NOLOGIN
+	.", ".RES_USERLEVEL_USER.": ".RES_USERLEVEL_STRING_USER
+	.", ".RES_USERLEVEL_LEADER.": ".RES_USERLEVEL_STRING_LEADER
+	.", ".RES_USERLEVEL_PROFESSOR.": ".RES_USERLEVEL_STRING_PROFESSOR
+	.", ".RES_USERLEVEL_ADMIN.": ".RES_USERLEVEL_STRING_ADMIN;
+
+}
+
+function getUserLevelDropDown($name){
+
+	return "<select name=\"".$name."\">
+				<option value=\"".RES_USERLEVEL_NOLOGIN."\">".RES_USERLEVEL_STRING_NOLOGIN."</option>
+				<option value=\"".RES_USERLEVEL_USER."\">".RES_USERLEVEL_STRING_USER."</option>
+				<option value=\"".RES_USERLEVEL_LEADER."\">".RES_USERLEVEL_STRING_LEADER."</option>
+				<option value=\"".RES_USERLEVEL_PROFESSOR."\">".RES_USERLEVEL_STRING_PROFESSOR."</option>
+				<option value=\"".RES_USERLEVEL_ADMIN."\">".RES_USERLEVEL_STRING_ADMIN."</option>
+			</select>";
+
+}
+
+function getUserLevelDropDownSelected($name, $selected){
+
+	$selectedText = array();
+	
+	for($i = 0; $i <= RES_USERLEVEL_ADMIN; $i++){
+	
+		$selectedText[$i] = "";
+	
+	}
+
+	$selectedText[$selected] = "selected=\"selected\"";
+
+	return "<select name=\"".$name."\">
+				<option value=\"".RES_USERLEVEL_NOLOGIN."\" ".$selectedText[RES_USERLEVEL_NOLOGIN].">".RES_USERLEVEL_STRING_NOLOGIN."</option>
+				<option value=\"".RES_USERLEVEL_USER."\" ".$selectedText[RES_USERLEVEL_USER].">".RES_USERLEVEL_STRING_USER."</option>
+				<option value=\"".RES_USERLEVEL_LEADER."\" ".$selectedText[RES_USERLEVEL_LEADER].">".RES_USERLEVEL_STRING_LEADER."</option>
+				<option value=\"".RES_USERLEVEL_PROFESSOR."\" ".$selectedText[RES_USERLEVEL_PROFESSOR].">".RES_USERLEVEL_STRING_PROFESSOR."</option>
+				<option value=\"".RES_USERLEVEL_ADMIN."\" ".$selectedText[RES_USERLEVEL_ADMIN].">".RES_USERLEVEL_STRING_ADMIN."</option>
+			</select>";
+
+}
+
 ?>

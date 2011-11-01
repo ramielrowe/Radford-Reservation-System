@@ -134,8 +134,7 @@ if($pageid == "edituser" || $pageid == "adminsavepassword" || $pageid == "admins
 			
 			<td colspan=1 class=\"centeredcellbold\">Userlevel</td>
 			<form action=\"./index.php?pageid=adminsavelevel\" method=\"POST\"><td colspan=3 class=\"centeredcell\">
-			<input type=\"hidden\" name=\"userid\" value=\"".$user['user_id']."\"><input type=\"text\" name=\"level\" size=2 value=\"".$user['user_level']."\"><input type=\"submit\" value=\"Save Level\">
-			<br />".RES_USERLEVEL_NOLOGIN.": ".RES_USERLEVEL_STRING_NOLOGIN.", ".RES_USERLEVEL_USER.": ".RES_USERLEVEL_STRING_USER.", ".RES_USERLEVEL_LEADER.": ".RES_USERLEVEL_STRING_LEADER.", ".RES_USERLEVEL_ADMIN.": ".RES_USERLEVEL_STRING_ADMIN."</td>
+			<input type=\"hidden\" name=\"userid\" value=\"".$user['user_id']."\">".getUserLevelDropDownSelected("level",$user['user_level'])."<input type=\"submit\" value=\"Save Level\"></td>
 			</form>
 				
 		</tr>

@@ -51,11 +51,7 @@
 		<tr>
 		
 			<td class=\"centeredcellbold\">User Level</td>
-			<td class=\"centeredcell\"><select name=\"user_level\">
-				<option value=\"".RES_USERLEVEL_USER."\">".RES_USERLEVEL_STRING_USER."</option>
-				<option value=\"".RES_USERLEVEL_LEADER."\">".RES_USERLEVEL_STRING_LEADER."</option>
-				<option value=\"".RES_USERLEVEL_ADMIN."\">".RES_USERLEVEL_STRING_ADMIN."</option>
-			</select></td>
+			<td class=\"centeredcell\">".getUserLevelDropDown("user_level")."</td>
 			<td colspan=2 class=\"centeredcell\"><input type=\"submit\" value=\"Create!\"></td>
 		
 		</tr>

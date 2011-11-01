@@ -106,7 +106,7 @@ if(issetSessionVariable('user_level')){
 			</td></tr>";
 	
 	}
-	if($userlevel == RES_USERLEVEL_LEADER){
+	if($userlevel == getConfigVar("moderator_rank")){
 
 		$navi = $navi . "<tr>
 			<td class=\"adminnaviouter\">
@@ -120,7 +120,7 @@ if(issetSessionVariable('user_level')){
 			</td>";
 
 	}
-	if($userlevel >= RES_USERLEVEL_ADMIN){
+	if($userlevel >= getConfigVar("admin_rank")){
 	
 		$navi = $navi . "<tr>
 		

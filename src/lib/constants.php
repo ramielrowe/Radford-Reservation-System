@@ -3,11 +3,13 @@
 define('RES_USERLEVEL_NOLOGIN', 0);
 define('RES_USERLEVEL_USER', 1);
 define('RES_USERLEVEL_LEADER', 2);
+define('RES_USERLEVEL_PROFESSOR', 3);
 define('RES_USERLEVEL_ADMIN', 6);
 
 define('RES_USERLEVEL_STRING_NOLOGIN', 'Disabled');
 define('RES_USERLEVEL_STRING_USER', 'Student');
-define('RES_USERLEVEL_STRING_LEADER', 'Media Leader');
+define('RES_USERLEVEL_STRING_LEADER', 'Research Student');
+define('RES_USERLEVEL_STRING_PROFESSOR', 'Professor');
 define('RES_USERLEVEL_STRING_ADMIN', 'Admin');
 
 define('RES_STATUS_PENDING', 0);

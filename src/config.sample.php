@@ -87,6 +87,8 @@ $config = array(
 
 'BLOWFISH_key' => '1234567890123456',
 
+'moderator_rank' => '3',
+
 'admin_rank' => '6',
 
 'use_ldap' => true,
