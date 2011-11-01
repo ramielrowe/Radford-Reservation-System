@@ -78,7 +78,7 @@ echo "
 		
 		<tr>
 
-			<td class=\"centeredcellbold\">ID Number</td>
+			<td class=\"centeredcellbold\">Username</td>
 			<td colspan=3 class=\"centeredcell\">".$user['username']."</td>
 			
 		</tr>
