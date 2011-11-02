@@ -35,6 +35,18 @@ CREATE TABLE IF NOT EXISTS `res_log` (
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+CREATE TABLE IF NOT EXISTS `res_error_log` (
+  `error_id` int(11) NOT NULL AUTO_INCREMENT,
+  `time` datetime NOT NULL,
+  `error_number` int(11) NOT NULL,
+  `message` longtext NOT NULL,
+  `file` longtext NOT NULL,
+  `line_number` int(11) NOT NULL,
+  `context` longtext NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`error_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
 CREATE TABLE IF NOT EXISTS `res_messages` (
   `message_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,

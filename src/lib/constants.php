@@ -1,5 +1,10 @@
 <?php
 
+define('ERROR_OUTPUT_NONE', 'none');
+define('ERROR_OUTPUT_PHP', 'php');
+define('ERROR_OUTPUT_DBID', 'dbid');
+define('ERROR_OUTPUT_BOTH', 'both');
+
 define('RES_USERLEVEL_NOLOGIN', 0);
 define('RES_USERLEVEL_USER', 1);
 define('RES_USERLEVEL_LEADER', 2);

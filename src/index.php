@@ -60,6 +60,13 @@ if( getConfigVar("maint_mode") ){
 
 initMySQL();
 
+
+if( getConfigVar("db_error_logging") ){
+
+	set_error_handler("db_error_logger");
+
+}
+
 $pageid = "home";
 
 if(isset($_GET['pageid'])){

@@ -42,6 +42,18 @@ ini_set('smtp_port', '25');
 		ex (128bit)- '1234567890123456'
 		ex (256bit)- '1234567890123456ABCDEFGHIJKLMNOP'
 		
+	'db_error_logging' : (true, false)
+		Whether or not the system will log errors in the database.
+		
+	'error_output' : ('none', 'php, 'dbid', 'both')
+		These values only matter when db_error_logging is set to true,
+		otherwise php will handle error output.
+		Values:
+		* none - No error output
+		* php - PHP error output only
+		* dbid - The error_id from database only
+		* both - Both PHP error output and error_id from the database
+		
 	'admin_rank' : The userlevel that is assosiated with admin users. This
 		doesn't need to be changed unless there are going to be greater than
 		5 user levels that rank below admins. Values for this could be as
@@ -84,6 +96,10 @@ $config = array(
 'smtp_password' => 'emailPassword',
 
 'db_prefix' => 'res',
+
+'db_error_logging' => true,
+
+'error_output' => 'both',
 
 'BLOWFISH_key' => '1234567890123456',
 
