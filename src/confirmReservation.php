@@ -84,7 +84,7 @@ if(isset($_POST['page']) && $_POST['page'] == "login"){
 	
 		setSessionVariable('user_id', $row['user_id']);
 	
-		setSessionVariable('user_level', $row['user_id']);
+		setSessionVariable('user_level', $row['user_level']);
 
 	}
 	
