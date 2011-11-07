@@ -6,3 +6,4 @@ Required PHP Libraries
 * pear
 * * Mail
 * * * Net_SMTP (dependancy of Mail)
+* * Auth_SASL
