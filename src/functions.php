@@ -156,6 +156,23 @@ function handleFileError($error){
 
 }
 
+function getStatusString($status){
+
+	if($status == RES_STATUS_PENDING)
+		return "Pending";
+	else if($status == RES_STATUS_CONFIRMED)
+		return "Confirmed";
+	else if($status == RES_STATUS_DENIED)
+		return "Denied";
+	else if($status == RES_STATUS_CHECKED_IN)
+		return "Checked In";
+	else if($status == RES_STATUS_CHECKED_OUT)
+		return "Checked Out";
+	else
+		return "Unknown";
+
+}
+
 function getClientIP(){
 
 	return $_SERVER['REMOTE_ADDR'];

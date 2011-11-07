@@ -143,7 +143,7 @@ function confirmReservation($resid, $admincomment, $status){
 	
 	$user = mysql_fetch_assoc(getUserByID($res['user_id']));
 	
-	sendReservationNoticeToUser($user['email'], $resid);
+	sendReservationNoticeToUser($user['email'], $resid, $status, $admincomment);
 	
 	logAdminConfirmReservation(getSessionVariable('user_id'),$resid);
 

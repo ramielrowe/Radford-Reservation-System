@@ -26,9 +26,16 @@ Known Bugs/Fixes:
 
 */
 
-function sendReservationNoticeToUser($email, $resid){
+function sendReservationNoticeToUser($email, $resid, $status, $adminMessage){
 
-	$message = "Your reservation's status has been updated. Please visit this address to view it's status: ".getConfigVar("location")."index.php?pageid=viewreservation&&resid=".$resid."";
+	$message = "Your reservation's status has been updated to: ".getStatusString($status).". To view your reservation please visit this address: ".getConfigVar("location")."index.php?pageid=viewreservation&&resid=".$resid."";
+
+	if($adminMessage != ""){
+	
+	$message = "Your reservation's status has been updated to: ".getStatusString($status)." and the admin commented:\n\n".$adminMessage."\n\nTo view your reservation please visit this address: ".getConfigVar("location")."index.php?pageid=viewreservation&&resid=".$resid."";
+	
+	}
+	
 	$subject = "Reservation Status Update";
 	$headers = 'From: '.getConfigVar('smtp_email'). "\r\n" .
     'Reply-To: '.getConfigVar('smtp_email') . "\r\n" .
