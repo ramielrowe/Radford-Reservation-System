@@ -23,6 +23,7 @@ Known Bugs/Fixes:
 */
 
 $ourequipment = "";
+$typelinks = "";
 
 $equipArray = array();
 $equipresult = getAllEquipment();
@@ -44,13 +45,27 @@ while($row = mysql_fetch_assoc($equipresult)){
 
 $equipKeys = array_keys($equipArray);
 
+$i = 0;
+foreach($equipKeys as $key){
+
+	$typelinks = $typelinks . "<a href=\"#".$key."\">".$key."</a>";
+	
+	if($i+1 < count($equipKeys)){
+	
+		$typelinks = $typelinks . " - ";
+		$i++;
+	
+	}
+
+}
+
 foreach($equipKeys as $key){
 
 	$ourequipment = $ourequipment . "<h3>".$key."</h3><table class=\"ourequip\">
 		
 			<tr>
 			
-				<td width=\"40%\" class=\"header\">Equipment Name</th>
+				<td width=\"40%\" class=\"header\" id=\"".$key."\">Equipment Name</th>
 				<td width=\"15%\"  class=\"header\">--</th>
 				<td width=\"25%\" class=\"header\">Status</th>
 				<td width=\"20%\" class=\"header\">--</th>
@@ -107,7 +122,7 @@ foreach($equipKeys as $key){
 }
 
 $page = "<center><h3>Our Equipment</h3></center>
-		
+		<center><b>".$typelinks."</b></center>
 		".$ourequipment;
 
 echo $page;
