@@ -17,12 +17,11 @@ Known Bugs/Fixes:
 	
 */
 
-require_once 'config.php';
-require_once './lib/constants.php';
-require_once './lib/db_functions.php';
-require_once './lib/email_functions.php';
-require_once './lib/html_functions.php';
-require_once './lib/error_functions.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR .'./lib/constants.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR .'./lib/db_functions.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR .'./lib/email_functions.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR .'./lib/html_functions.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR .'./lib/error_functions.php';
 
 
 
@@ -35,6 +34,12 @@ require_once './lib/error_functions.php';
 function getConfigVar($v_name){
 
 	global $config;
+	
+	if(!isset($config)){
+	
+		require_once 'config.php';
+	
+	}
 	
 	return $config[$v_name];
 	
