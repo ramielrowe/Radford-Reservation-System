@@ -44,9 +44,9 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Test Runner</title>
-	<link rel="stylesheet" href="<?=$testRunnerURL?>misc/style.css" type="text/css"></link> 
-	<script type="text/javascript" src="<?=$testRunnerURL?>misc/folding.js"></script>
-	<script type="text/javascript" src="<?=$testRunnerURL?>misc/selection.js"></script>
+	<link rel="stylesheet" href="<?php echo $testRunnerURL ?>misc/style.css" type="text/css"></link> 
+	<script type="text/javascript" src="<?php echo $testRunnerURL ?>misc/folding.js"></script>
+	<script type="text/javascript" src="<?php echo $testRunnerURL ?>misc/selection.js"></script>
 </head>
 
 <body>
@@ -57,7 +57,7 @@
 ?>
 
 <div id="testResultsContainer">
-	<?=$runner->getReport();?>
+	<?php echo $runner->getReport(); ?>
 </div>
 
 </body>
