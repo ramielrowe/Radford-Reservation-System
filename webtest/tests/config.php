@@ -81,11 +81,11 @@ $config = array(
 
 'mysql_server' => 'localhost',
 
-'mysql_user' => 'user',
+'mysql_user' => 'restest',
 
-'mysql_password' => 'password',
+'mysql_password' => 'TestPass1',
 
-'mysql_database' => 'database',
+'mysql_database' => 'stmeTest',
 
 'smtp_server' => 'ssl://smtp.gmail.com',
 

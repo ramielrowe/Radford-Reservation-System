@@ -321,7 +321,14 @@ else{
 			<td class="content">
 			
 				
-				<?php require $page; ?>
+				<?php
+				
+					require $page;
+					
+					if(isset($pageData)
+						echo $pageData;
+					
+				?>
 			
 			<br></td>
 		
