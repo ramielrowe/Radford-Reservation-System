@@ -1,6 +1,6 @@
 <?php
 
-$hourscalendar = "<center><h3>Office Hours</h3></center>
+$hourscalendar = "<h3>Office Hours</h3>
 		<table class=\"pickuptimes\">
 			<tr>
 				<td class=\"header\">Monday</td>

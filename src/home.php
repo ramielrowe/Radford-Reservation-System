@@ -113,6 +113,6 @@ $homepage = "
 	
 	</center>";
 	
-echo $homepage;
+$pageData = $homepage;
 
 ?>

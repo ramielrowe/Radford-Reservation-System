@@ -125,6 +125,8 @@ $page = "<center><h3>Our Equipment</h3></center>
 		<center><b>".$typelinks."</b></center>
 		".$ourequipment;
 
-echo $page;
+//echo $page;
+
+$pageData = $page;
 
 ?>
