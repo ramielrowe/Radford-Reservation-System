@@ -54,7 +54,7 @@ $loginpage = $loginpage . "
 			</table>
 		
 		</form>
-		$hourscalendar;
+		$hourscalendar
 	
 	</center>
 
