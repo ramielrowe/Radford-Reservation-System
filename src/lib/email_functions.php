@@ -114,35 +114,39 @@ function sendWarningNotice($userid, $reason, $type){
 
 function sendMail($sender, $rec, $subj, $bod){
 
- require_once "Mail.php";
- 
- $from = "<$sender>";
- $to = "<$rec>";
- $subject = $subj;
- $body = $bod;
- 
- $host = getConfigVar('smtp_server');
- $port = getConfigVar('smtp_port');
- $username = getConfigVar('smtp_user');
- $password = getConfigVar('smtp_password');
- 
- $headers = array ('From' => $from,
-   'To' => $to,
-   'Subject' => $subject);
- $smtp = Mail::factory('smtp',
-   array ('host' => $host,
-     'port' => $port,
-     'auth' => true,
-     'username' => $username,
-     'password' => $password));
- 
- $mail = $smtp->send($to, $headers, $body);
- 
- if (PEAR::isError($mail)) {
-   echo("<p>" . $mail->getMessage() . "</p>");
-  } else {
-   #echo("<p>Message successfully sent!</p>");
-  }
+	if(getConfigVar("send_mail")){
+
+		require_once "Mail.php";
+
+		$from = "<$sender>";
+		$to = "<$rec>";
+		$subject = $subj;
+		$body = $bod;
+
+		$host = getConfigVar('smtp_server');
+		$port = getConfigVar('smtp_port');
+		$username = getConfigVar('smtp_user');
+		$password = getConfigVar('smtp_password');
+
+		$headers = array ('From' => $from,
+		'To' => $to,
+		'Subject' => $subject);
+		$smtp = Mail::factory('smtp',
+		array ('host' => $host,
+		 'port' => $port,
+		 'auth' => true,
+		 'username' => $username,
+		 'password' => $password));
+
+		$mail = $smtp->send($to, $headers, $body);
+
+		if (PEAR::isError($mail)) {
+			echo("<p>" . $mail->getMessage() . "</p>");
+		} else {
+			#echo("<p>Message successfully sent!</p>");
+		}
+	
+	}
 
 }
 

@@ -1,5 +1,7 @@
 <?php
 
+$pageData = "";
+
 if(mysql_num_rows(getActiveWarningsForUser(getSessionVariable('user_id'))) < RES_WARNING_MAX_ACTIVE){
 
 	if(isset($_GET['equipid']))
@@ -72,7 +74,7 @@ if(mysql_num_rows(getActiveWarningsForUser(getSessionVariable('user_id'))) < RES
 
 	}
 
-	echo "
+	$pageData = $pageData . "
 		<center><h3>Make Reservation</h3>".$message."</center>
 		
 		<script type=\"text/javascript\">
@@ -109,20 +111,6 @@ if(mysql_num_rows(getActiveWarningsForUser(getSessionVariable('user_id'))) < RES
 				<td class=\"centeredcell\"><select name=\"length\">".$length."</select></td>
 		
 			</tr>
-		
-			<!--<tr>
-				
-				<td colspan=4 class=\"centeredcellbold\">Pickup Time: 
-					<select name=\"pickup\">
-						<option value=\"10am-12pm (Monday/Friday)\">10am-12pm (Monday/Friday)</option>
-						<option value=\"9am-12pm (Tuesday)\">9am-12pm (Tuesday)</option>
-						<option value-\"9-10 (Wednesday/Thursday)\">9-10 (Wednesday/Thursday)</option>
-						<option value=\"2pm-4pm (Wednesday)\">2pm-4pm (Wednesday)</option>
-						<option value=\"12pm-2pm (Thursday)\">12pm-2pm (Thursday)</option>
-					</select>
-				</td>
-					
-			</tr>-->
 
 			<tr>
 			
@@ -138,22 +126,21 @@ if(mysql_num_rows(getActiveWarningsForUser(getSessionVariable('user_id'))) < RES
 				</tr>
 				
 			</table>
-			</form></div><DIV ID=\"testdiv1\" STYLE=\"position:absolute;visibility:hidden;background-color:white;\"></DIV>
-	";
+			</form></div><DIV ID=\"testdiv1\" STYLE=\"position:absolute;visibility:hidden;background-color:white;\"></DIV>";
 
 }else{
 
-	echo "<center><h3><font color=\"#FF0000\">Error: You have recieved 3 or more warnings.</font></h3>To reserve equipment please contact an admin: <br><br>";
+	$pageData = $pageData .  "<center><h3><font color=\"#FF0000\">Error: You have recieved 3 or more warnings.</font></h3>To reserve equipment please contact an admin: <br><br>";
 	
 	$admins = getAdmins();
 	
 	while($row = mysql_fetch_assoc($admins)){
 	
-		echo $row['name'] . " -- " . $row['email'] . "<br>";
+		$pageData = $pageData .  $row['name'] . " -- " . $row['email'] . "<br />";
 	
 	}
 	
-	echo "</center>";
+	$pageData = $pageData .  "</center>";
 
 }
 			

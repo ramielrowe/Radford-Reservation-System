@@ -8,19 +8,19 @@ class DBTestUtil{
 
 	public static function getTestInitDate(){
 
-		return $initDate;
+		return DBTestUtil::$initDate;
 
 	}
 
 	public static function getTestInitDateTime(){
 
-		return $initDateTime;
+		return DBTestUtil::$initDateTime;
 
 	}
 	
 	public static function getTestEmail(){
 	
-		return $testEmail;
+		return DBTestUtil::$testEmail;
 	
 	}
 

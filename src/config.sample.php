@@ -85,6 +85,8 @@ $config = array(
 
 'mysql_database' => 'database',
 
+'send_email' => true,
+
 'smtp_server' => 'ssl://smtp.gmail.com',
 
 'smtp_port' => '465',

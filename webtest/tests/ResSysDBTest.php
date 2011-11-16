@@ -49,6 +49,11 @@ class ResSysDBTest extends PHPUnit_Framework_TestCase{
 		$this->setSessionUser(4, 0);
 	
 	}
+	public function setSessionUserThreeWarnings(){
+	
+		$this->setSessionUser(5, 0);
+	
+	}
 	public function setSessionUserFromDatabase($user_id){
 	
 		$user = mysql_fetch_assoc(getUserByID($user_id));
