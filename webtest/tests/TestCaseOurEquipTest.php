@@ -51,7 +51,7 @@ class TestCaseOurEquipTest extends ResSysDBTest{
 			<tr>
 				<td class=\"centeredcell\">Check Out From</td>
 				<td class=\"centeredcell\"><a href=\"./index.php?pageid=moreinfo&equipid=4\">More Info</a></td>
-				<td class=\"centeredcell\" colspan=2>Checkout from<br><a href=\"mailto:".DBTestUtil::$testEmail."\">Test Mod</a></td>
+				<td class=\"centeredcell\" colspan=2>Checkout from<br><a href=\"mailto:".DBTestUtil::getTestEmail()."\">Test Mod</a></td>
 			</tr>
 		</table>";
 	
@@ -106,7 +106,7 @@ class TestCaseOurEquipTest extends ResSysDBTest{
 			<tr>
 				<td class=\"centeredcell\">Check Out From</td>
 				<td class=\"centeredcell\"><a href=\"./index.php?pageid=moreinfo&equipid=4\">More Info</a></td>
-				<td class=\"centeredcell\" colspan=2>Checkout from<br><a href=\"mailto:".DBTestUtil::$testEmail."\">Test Mod</a></td>
+				<td class=\"centeredcell\" colspan=2>Checkout from<br><a href=\"mailto:".DBTestUtil::getTestEmail()."\">Test Mod</a></td>
 			</tr>
 		</table>";
 	
@@ -155,7 +155,7 @@ class TestCaseOurEquipTest extends ResSysDBTest{
 			<tr>
 				<td class=\"centeredcell\">Check Out From</td>
 				<td class=\"centeredcell\"><a href=\"./index.php?pageid=moreinfo&equipid=4\">More Info</a></td>
-				<td class=\"centeredcell\" colspan=2>Checkout from<br><a href=\"mailto:".DBTestUtil::$testEmail."\">Test Mod</a></td>
+				<td class=\"centeredcell\" colspan=2>Checkout from<br><a href=\"mailto:".DBTestUtil::getTestEmail()."\">Test Mod</a></td>
 			</tr>
 		</table>";
 	
@@ -163,7 +163,7 @@ class TestCaseOurEquipTest extends ResSysDBTest{
 	
 	}
 	
-	public function testGetOurEquipForDiabledUser(){
+	public function testGetOurEquipForDisabledUser(){
 	
 		$this->setSessionUserDisabled();
 		

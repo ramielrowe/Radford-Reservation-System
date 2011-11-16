@@ -65,7 +65,7 @@ else if($pageid == "saveemail"){
 }
 
 
-echo "
+$pageData = "
 	<center><h3>My Account</h3>".$message."</center>
 	
 	<table class=\"myaccount\">

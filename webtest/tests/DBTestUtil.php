@@ -2,7 +2,7 @@
 	
 class DBTestUtil{
 	
-	public static $testEmail = "apmelton@radford.edu";
+	private static $testEmail = "apmelton@radford.edu";
 	private static $initDate;
 	private static $initDateTime;
 
@@ -16,6 +16,12 @@ class DBTestUtil{
 
 		return $initDateTime;
 
+	}
+	
+	public static function getTestEmail(){
+	
+		return $testEmail;
+	
 	}
 
 	public static function incrementDateBy($date, $numDays){
@@ -35,35 +41,60 @@ class DBTestUtil{
 		$enddate = $start_Date->format("Y-m-d");
 		return $enddate;
 	}
+
+	public static function incrementDateTimeByDays($date, $numDays){
+
+		$start_Date = new DateTime($date);
+		$interval = new DateInterval("P".$numDays."D");
+		$start_Date->add($interval);
+		$enddate = $start_Date->format("Y-m-d");
+		return $enddate;
+	}
+
+	public static function decrementDateTimeByDays($date, $numDays){
+
+		$start_Date = new DateTime($date);
+		$interval = new DateInterval("P".$numDays."D");
+		$start_Date->sub($interval);
+		$enddate = $start_Date->format("Y-m-d H:i:s");
+		return $enddate;
+	}
 	
 	private static function addUsers(){
 		// Admin
 		// user_id = 1
 		doQuery("INSERT INTO ".getConfigVar('db_prefix')."_users SET
 			username = 'Admin', name = 'Test Admin',
-			password = '".encrypt('TestPass1')."', email = '".DBTestUtil::$testEmail."',
+			password = '".encrypt('TestPass1')."', email = '".DBTestUtil::getTestEmail()."',
 			user_level = '".getConfigVar('admin_rank')."'");
 		
 		// Moderator
 		// user_id = 2
 		doQuery("INSERT INTO ".getConfigVar('db_prefix')."_users SET
 			username = 'Mod', name = 'Test Mod',
-			password = '".encrypt('TestPass1')."', email = '".DBTestUtil::$testEmail."',
+			password = '".encrypt('TestPass1')."', email = '".DBTestUtil::getTestEmail()."',
 			user_level = '".getConfigVar('moderator_rank')."'");
 	
 		// Normal User
 		// user_id = 3
 		doQuery("INSERT INTO ".getConfigVar('db_prefix')."_users SET
 			username = 'User', name = 'Test User',
-			password = '".encrypt('TestPass1')."', email = '".DBTestUtil::$testEmail."',
+			password = '".encrypt('TestPass1')."', email = '".DBTestUtil::getTestEmail()."',
 			user_level = '1'");
 		
 		// Disabled
 		// user_id = 4
 		doQuery("INSERT INTO ".getConfigVar('db_prefix')."_users SET
 			username = 'Diabled', name = 'Disabled User',
-			password = '".encrypt('TestPass1')."', email = '".DBTestUtil::$testEmail."',
+			password = '".encrypt('TestPass1')."', email = '".DBTestUtil::getTestEmail()."',
 			user_level = '0'");
+		
+		// Too Many Active Warnings
+		// user_id = 5
+		doQuery("INSERT INTO ".getConfigVar('db_prefix')."_users SET
+			username = 'warned', name = 'Bad User',
+			password = '".encrypt('TestPass1')."', email = '".DBTestUtil::getTestEmail()."',
+			user_level = '1'");
 	}
 	
 	private static function addEquipment(){
@@ -128,6 +159,36 @@ class DBTestUtil{
 			priority = '2'");
 	
 	}
+
+	private static function addWarnings(){
+	
+		doQuery("INSERT INTO ".getConfigVar('db_prefix')."_warnings SET
+			user_id = '3', reason = 'This is an active warning.',
+			time = '".DBTestUtil::decrementDateTimeByDays(DBTestUtil::getTestInitDateTime(), 20)."',
+			type = '".RES_WARNING_ACTIVE."'");
+		doQuery("INSERT INTO ".getConfigVar('db_prefix')."_warnings SET
+			user_id = '3', reason = 'This is an inactive warning.',
+			time = '".DBTestUtil::decrementDateTimeByDays(DBTestUtil::getTestInitDateTime(), 20)."',
+			type = '".RES_WARNING_INACTIVE."'");
+		doQuery("INSERT INTO ".getConfigVar('db_prefix')."_warnings SET
+			user_id = '3', reason = 'This is a note.',
+			time = '".DBTestUtil::decrementDateTimeByDays(DBTestUtil::getTestInitDateTime(), 20)."',
+			type = '".RES_WARNING_NOTE."'");
+			
+		doQuery("INSERT INTO ".getConfigVar('db_prefix')."_warnings SET
+			user_id = '5', reason = 'This is an active warning.',
+			time = '".DBTestUtil::decrementDateTimeByDays(DBTestUtil::getTestInitDateTime(), 20)."',
+			type = '".RES_WARNING_ACTIVE."'");
+		doQuery("INSERT INTO ".getConfigVar('db_prefix')."_warnings SET
+			user_id = '5', reason = 'This is an active warning.',
+			time = '".DBTestUtil::decrementDateTimeByDays(DBTestUtil::getTestInitDateTime(), 20)."',
+			type = '".RES_WARNING_ACTIVE."'");
+		doQuery("INSERT INTO ".getConfigVar('db_prefix')."_warnings SET
+			user_id = '5', reason = 'This is an active warning.',
+			time = '".DBTestUtil::decrementDateTimeByDays(DBTestUtil::getTestInitDateTime(), 20)."',
+			type = '".RES_WARNING_ACTIVE."'");
+	
+	}
 	
 	public static function init($date, $dateTime){
 	
@@ -147,6 +208,7 @@ class DBTestUtil{
 		DBTestUtil::addEquipment();
 		DBTestUtil::addReservations();
 		DBTestUtil::addMessages();
+		DBTestUtil::addWarnings();
 	
 	}
 	
